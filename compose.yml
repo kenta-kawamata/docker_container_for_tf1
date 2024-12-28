@@ -1,0 +1,29 @@
+services:
+  tf1150-cu100-cd742-py37:
+    image: tf1150-cu100-cd742-py37-img
+    container_name: "tf1150-cu100-cd742-py37-ctn"
+    build: 
+      context: ./
+      dockerfile: ./Dockerfile
+    environment:
+      - DISPLAY=:0.0
+      - WAYLAND_DISPLAY=wayland-0
+      - XDG_RUNTIME_DIR=/run/user/1002/
+      - PULSE_SERVER=/mnt/wslg/PulseServer
+      - LD_LIBRARY_PATH=/usr/lib/wsl/lib
+    restart: always
+    tty: true
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /mnt/wslg:/mnt/wslg
+      - /usr/lib/wsl:/usr/lib/wsl
+      - /mnt/d:/mnt/d
+      - ../:/home/user/code
+    devices:
+      - /dev/dxg:/dev/dxg
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+

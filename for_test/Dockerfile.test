@@ -1,0 +1,30 @@
+FROM tensorflow/tensorflow:1.15.5-gpu-py3
+
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC
+
+###################################################################################################
+# Install some libraries
+###################################################################################################
+
+RUN apt update && apt install -y --no-install-recommends \
+        curl \
+        libzmq3-dev \
+        pkg-config \
+        software-properties-common \
+        unzip \
+        git \
+        vim \
+        eog \
+        libgl1-mesa-dev
+
+RUN apt update && apt install -y --no-install-recommends wget git cmake gedit
+
+
+RUN pip install --no-cache-dir opencv-python==3.4.6.27
+
+
+RUN echo 'export DISPLAY=:0.0' >> ~/.bashrc 
+RUN echo 'export LIBGL_ALWAYS_INDIRECT=0' >> ~/.bashrc
+RUN echo 'export PATH="/usr/local/cuda/bin:$PATH"' >> ~/.bashrc
+RUN echo 'export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"' >> ~/.bashrc
+RUN source ~/.bashrc
