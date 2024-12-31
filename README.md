@@ -6,7 +6,7 @@
 
 1. 以下のリンクから依存関係にあるcudnnファイルをDockerfile配下にダウンロードする。
 
-[developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804](https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/)
+[developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804](https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/)  
 [個人用バックアップ先](https://drive.google.com/drive/folders/1zbMdOlB4cEUiF27gfYc5dFcMZKoCskfm?usp=sharing)
 
 依存関係にあるcudnnファイル
